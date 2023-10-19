@@ -10,12 +10,12 @@ type Queue struct {
 }
 
 // Enqueue добавляет элемент в конец очереди.
-func (q *Queue) Enqueue(item interface{}) {
+func (q *Queue) Qenqueue(item interface{}) {
 	q.items = append(q.items, item)
 }
 
 // Dequeue удаляет и возвращает элемент из начала очереди.
-func (q *Queue) Dequeue() interface{} {
+func (q *Queue) Qdequeue() interface{} {
 	if len(q.items) == 0 {
 		return nil
 	}
@@ -37,16 +37,16 @@ func (q *Queue) IsEmpty() bool {
 func main() {
 	queue := Queue{}
 
-	queue.Enqueue(1)
-	queue.Enqueue("ab")
-	queue.Enqueue(2)
-	queue.Enqueue("cd")
+	queue.Qenqueue(1)
+	queue.Qenqueue("ab")
+	queue.Qenqueue(2)
+	queue.Qenqueue("cd")
 	
 
 	fmt.Println("Размер:", queue.Size())
 
 	fmt.Println("Извлечение элементов:")
 	for !queue.IsEmpty() {
-		fmt.Println(queue.Dequeue())
+		fmt.Println(queue.Qdequeue())
 	}
 }

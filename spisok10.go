@@ -31,7 +31,7 @@ func NewLinkedList() *LinkedList {
 }
 
 // Функция для добавления элемента в начало списка
-func (ll *LinkedList) InsertAtBeginning(data int) {
+func (ll *LinkedList) InsertBegin(data int) {
     newNode := NewNode(data)
     newNode.Next = ll.Head
     ll.Head = newNode
@@ -82,8 +82,8 @@ func (ll *LinkedList) Display() {
 func main() {
     list := NewLinkedList()
 
-    list.InsertAtBeginning(1)
-    list.InsertAtBeginning(2)
+    list.InsertBegin(1)
+    list.InsertBegin(2)
     list.InsertAtEnd(3)
     list.InsertAtEnd(4)
 

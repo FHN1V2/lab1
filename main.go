@@ -10,11 +10,11 @@ func main() {
     arr := NewMyArray(5)
 
     // Вызываем функцию Set для установки значений
-    arr.Set(0, "1")
-    arr.Set(1, "2")
-    arr.Set(2, "3")
-    arr.Set(3, "4")
-    arr.Set(4, "5")
+    arr.ASet(0, "1")
+    arr.ASet(1, "2")
+    arr.ASet(2, "3")
+    arr.ASet(3, "4")
+    arr.ASet(4, "5")
 
     // Вызываем функцию Get для получения значений
     fmt.Println(arr.Get(0)) //"1"

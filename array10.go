@@ -12,13 +12,13 @@ func NewMyArray(size int) MyArray {
 	}
 }
 
-func (arr *MyArray) Set(index int, value string) {
+func (arr *MyArray) ASet(index int, value string) {
 	if index >= 0 && index < arr.length {
 		arr.data[index] = value
 	}
 }
 
-func (arr MyArray) Get(index int) string {
+func (arr MyArray) AGet(index int) string {
 	if index >= 0 && index < arr.length {
 		return arr.data[index]
 	}

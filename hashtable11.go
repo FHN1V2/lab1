@@ -2,88 +2,115 @@ package main
 
 import (
 	"errors"
+	"fmt"
 )
 
-type HashMap  struct {
-	table [512] *Pair
+type HashMap struct {
+	table [512]*Pair
 }
 
 type Pair struct {
-	key string
+	key   string
 	value string
 }
 
-func calcHash(key string, size int)(int, error){
-	if len(key) == 0{
+func calcHash(key string, size int) (int, error) {
+	if len(key) == 0 {
 		return 0, errors.New("no value")
 	}
 	hash := 0
-	for i := 0; i < len(key); i++{
+	for i := 0; i < len(key); i++ {
 		hash += int(key[i])
 	}
-	return hash % size,nil
+	return hash % size, nil
 }
 
-func (hmap *HashMap) Insert (key string, value string) (error){
-	p := new(Pair)
-	p.key = key
-	p.value = value
+func (hmap *HashMap) Insert(key string, value string) error {
+	p := &Pair{key, value}
 	hash, err := calcHash(key, len(hmap.table))
-	if err != nil{
+	if err != nil {
 		return errors.New("unacceptable key")
 	}
-	if hmap.table[hash] == nil{
+	if hmap.table[hash] == nil {
 		hmap.table[hash] = p
 		return nil
 	}
-	if hmap.table[hash].key == key{
+	if hmap.table[hash].key == key {
 		return errors.New("this key already exists")
 	}
-	for i := (hash + 1) % len(hmap.table); i != hash; i= (i + 1) % len(hmap.table){
-		if hmap.table[i] == nil{
+	for i := (hash + 1) % len(hmap.table); i != hash; i = (i + 1) % len(hmap.table) {
+		if hmap.table[i] == nil {
 			hmap.table[i] = p
 			return nil
 		}
-		if hmap.table[hash].key == key{
+		if hmap.table[i].key == key {
 			return errors.New("this key already exists")
 		}
 	}
 	return errors.New("table is full")
 }
 
-func (hmap *HashMap) Get (key string) (string, error){
+func (hmap *HashMap) Get(key string) (string, error) {
 	hash, err := calcHash(key, len(hmap.table))
-	if err != nil{
+	if err != nil {
 		return "", errors.New("unacceptable key")
 	}
-	if hmap.table[hash] != nil && hmap.table[hash].key == key{
+	if hmap.table[hash] != nil && hmap.table[hash].key == key {
 		return hmap.table[hash].value, nil
 	}
-	for i := (hash + 1) % len(hmap.table); i != hash; i = (i + 1) % len(hmap.table){
-		if hmap.table[i] != nil && hmap.table[i].key == key{
+	for i := (hash + 1) % len(hmap.table); i != hash; i = (i + 1) % len(hmap.table) {
+		if hmap.table[i] != nil && hmap.table[i].key == key {
 			return hmap.table[i].value, nil
 		}
 	}
 	return "", errors.New("no such key")
 }
 
-func (hmap *HashMap) Del (key string) (error){
+func (hmap *HashMap) Del(key string) error {
 	hash, err := calcHash(key, len(hmap.table))
-	if err != nil{
+	if err != nil {
 		return errors.New("unacceptable key")
 	}
-	if hmap.table[hash] == nil{
+	if hmap.table[hash] == nil {
 		return errors.New("nothing to delete")
 	}
-	if hmap.table[hash] != nil && hmap.table[hash].key == key{
+	if hmap.table[hash].key == key {
 		hmap.table[hash] = nil
 		return nil
 	}
-	for i := hash + 1; i != hash; i= (i + 1) % len(hmap.table){
-		if hmap.table[i] != nil && hmap.table[i].key == key{
+	for i := (hash + 1) % len(hmap.table); i != hash; i = (i + 1) % len(hmap.table) {
+		if hmap.table[i] != nil && hmap.table[i].key == key {
 			hmap.table[i] = nil
 			return nil
 		}
 	}
 	return errors.New("no such key")
-} 
+}
+
+func main() {
+	// Создаем экземпляр HashMap
+	hmap := HashMap{}
+
+	// Вставляем пару ключ-значение
+	err := hmap.Insert("n1", "a")
+	if err != nil {
+		fmt.Println("Ошибка при вставке:", err)
+	}
+
+	err = hmap.Insert("n2", "b")
+	if err != nil {
+		fmt.Println("Ошибка при вставке:", err)
+	}
+
+	err = hmap.Insert("n3", "c")
+	if err != nil {
+		fmt.Println("Ошибка при вставке:", err)
+	}
+
+	// Выводим все элементы через цикл
+	for i := 0; i < len(hmap.table); i++ {
+		if hmap.table[i] != nil {
+			fmt.Printf("Ключ: %s, Значение: %s\n", hmap.table[i].key, hmap.table[i].value)
+		}
+	}
+}
