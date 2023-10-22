@@ -1,0 +1,6 @@
+array   +
+stack   +
+queue   +
+hashtable +
+List(1&2)  -   1+   2-
+bintree    -

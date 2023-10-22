@@ -6,7 +6,7 @@ import (
 
 // Структура, представляющая элемент списка
 type Node struct {
-    Data int     // Значение элемента
+    Data string     // Значение элемента
     Next *Node  // Указатель на следующий элемент
 }
 
@@ -16,7 +16,7 @@ type LinkedList struct {
 }
 
 // Функция для создания нового элемента списка
-func NewNode(data int) *Node {
+func NewNode(data string) *Node {
     return &Node{
         Data: data,
         Next: nil,
@@ -31,14 +31,14 @@ func NewLinkedList() *LinkedList {
 }
 
 // Функция для добавления элемента в начало списка
-func (ll *LinkedList) InsertBegin(data int) {
+func (ll *LinkedList) InsertBegin(data string) {
     newNode := NewNode(data)
     newNode.Next = ll.Head
     ll.Head = newNode
 }
 
 // Функция для добавления элемента в конец списка
-func (ll *LinkedList) InsertAtEnd(data int) {
+func (ll *LinkedList) InsertAtEnd(data string) {
     newNode := NewNode(data)
     if ll.Head == nil {
         ll.Head = newNode
@@ -52,7 +52,7 @@ func (ll *LinkedList) InsertAtEnd(data int) {
 }
 
 // Функция для удаления элемента из списка по значению
-func (ll *LinkedList) DeleteNode(data int) {
+func (ll *LinkedList) DeleteNode(data string) {
     if ll.Head == nil {
         return
     }
@@ -73,7 +73,7 @@ func (ll *LinkedList) DeleteNode(data int) {
 func (ll *LinkedList) Display() {
     current := ll.Head
     for current != nil {
-        fmt.Printf("%d -> ", current.Data)
+        fmt.Printf(" -> ", current.Data)
         current = current.Next
     }
     fmt.Println("nil")
@@ -82,16 +82,16 @@ func (ll *LinkedList) Display() {
 func main() {
     list := NewLinkedList()
 
-    list.InsertBegin(1)
-    list.InsertBegin(2)
-    list.InsertAtEnd(3)
-    list.InsertAtEnd(4)
+    list.InsertBegin("1")
+    list.InsertBegin("2")
+    list.InsertAtEnd("3")
+    list.InsertAtEnd("4")
 
     fmt.Println("Список:")
     list.Display()
 
-    list.DeleteNode(2)
-    list.DeleteNode(4)
+    list.DeleteNode("2")
+    list.DeleteNode("4")
 
     fmt.Println("Список после удаления элементов:")
     list.Display()
