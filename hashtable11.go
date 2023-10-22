@@ -2,7 +2,6 @@ package main
 
 import (
 	"errors"
-	"fmt"
 )
 
 type HashMap struct {
@@ -87,30 +86,3 @@ func (hmap *HashMap) Del(key string) error {
 	return errors.New("no such key")
 }
 
-func main() {
-	// Создаем экземпляр HashMap
-	hmap := HashMap{}
-
-	// Вставляем пару ключ-значение
-	err := hmap.Insert("n1", "a")
-	if err != nil {
-		fmt.Println("Ошибка при вставке:", err)
-	}
-
-	err = hmap.Insert("n2", "b")
-	if err != nil {
-		fmt.Println("Ошибка при вставке:", err)
-	}
-
-	err = hmap.Insert("n3", "c")
-	if err != nil {
-		fmt.Println("Ошибка при вставке:", err)
-	}
-
-	// Выводим все элементы через цикл
-	for i := 0; i < len(hmap.table); i++ {
-		if hmap.table[i] != nil {
-			fmt.Printf("Ключ: %s, Значение: %s\n", hmap.table[i].key, hmap.table[i].value)
-		}
-	}
-}

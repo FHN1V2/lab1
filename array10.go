@@ -27,7 +27,7 @@ func (arr MyArray) AGet(index int) string {
 
 
 
-func (arr *MyArray) Del(index int) string {
+func (arr *MyArray) ADel(index int) string {
 	if index >= 0 && index < arr.length {
 		deletedValue := arr.data[index] // Сохраняем значение элемента
 		copy(arr.data[index:], arr.data[index+1:]) // Смещаем элементы влево на одну позицию
