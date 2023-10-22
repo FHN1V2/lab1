@@ -6,6 +6,42 @@ import (
 )
 
 func main() {
+
+
+	//Stack
+					
+	stack := Stack{}
+
+	stack.Push(1)
+	stack.Push(2)
+	stack.Push(3)
+	//fmt.Println(stack.Peek()) // 3
+	fmt.Println(stack.Pop()) // 3
+	fmt.Println(stack.Pop()) // 2
+	//fmt.Println(stack.IsEmpty()) // true
+	//fmt.Println(stack.Peek()) // 1
+	fmt.Println(stack.Pop()) // 1
+	fmt.Println(stack.Pop())
+	//fmt.Println(stack.IsEmpty()) // true
+
+
+	//Queue
+	queue := Queue{}
+
+	queue.Qenqueue(1)
+	queue.Qenqueue("ab")
+	queue.Qenqueue(2)
+	queue.Qenqueue("cd")
+	
+
+	fmt.Println("Размер:", queue.QSize())
+
+	fmt.Println("Извлечение элементов:")
+	for !queue.IsEmpty() {
+		fmt.Println(queue.Qdequeue())
+	}
+
+					//Array
     // Создаем новый MyArray с размером 5
     size:=5
     arr := NewMyArray(size)
@@ -54,4 +90,42 @@ func main() {
 			fmt.Printf("Ключ: %s, Значение: %s\n", hmap.table[i].key, hmap.table[i].value)
 		}
 	}
+
+
+	//LsList
+	list1 := NewLinkedList()
+
+    list1.InsertBegin("1")
+    list1.InsertBegin("2")
+    list1.InsertAtEnd("3")
+    list1.InsertAtEnd("4")
+
+    fmt.Println("Список:")
+    list1.Display()
+
+    list1.DeleteNode("2")
+    list1.DeleteNode("4")
+
+    fmt.Println("Список после удаления элементов:")
+    list1.Display()
+
+	    // Создание нового двусвязного списка
+
+	list2 := NewDoublyLinkedList()
+
+		// Добавление элементов
+	list2.Dladd("1")
+	list2.Dladd("2")
+	list2.Dladd("3")
+	list2.Dladd("4")
+	
+		// Вывод содержимого
+	fmt.Println("Содержимое списка:")
+	list2.DLDisplay()
+	
+		// Удаление элемента
+	list2.DlDel(2)
+	fmt.Println("Содержимое списка после удаления элемента 2:")
+	list2.DLDisplay()
+	
 }

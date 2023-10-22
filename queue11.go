@@ -1,8 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
 
 // Queue представляет собой структуру данных очередь.
 type Queue struct {
@@ -25,7 +22,7 @@ func (q *Queue) Qdequeue() interface{} {
 }
 
 // Size возвращает количество элементов в очереди.
-func (q *Queue) Size() int { //не выводить 
+func (q *Queue) QSize() int { //не выводить 
 	return len(q.items)
 }
 
@@ -34,19 +31,3 @@ func (q *Queue) IsEmpty() bool {
 	return len(q.items) == 0
 }
 
-func main() {
-	queue := Queue{}
-
-	queue.Qenqueue(1)
-	queue.Qenqueue("ab")
-	queue.Qenqueue(2)
-	queue.Qenqueue("cd")
-	
-
-	fmt.Println("Размер:", queue.Size())
-
-	fmt.Println("Извлечение элементов:")
-	for !queue.IsEmpty() {
-		fmt.Println(queue.Qdequeue())
-	}
-}

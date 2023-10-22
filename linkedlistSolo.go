@@ -5,19 +5,19 @@ import (
 )
 
 // Структура, представляющая элемент списка
-type Node struct {
+type LSNode struct {
     Data string     // Значение элемента
-    Next *Node  // Указатель на следующий элемент
+    Next *LSNode  // Указатель на следующий элемент
 }
 
 // Структура, представляющая односвязный список
 type LinkedList struct {
-    Head *Node // Указатель на голову списка
+    Head *LSNode // Указатель на голову списка
 }
 
 // Функция для создания нового элемента списка
-func NewNode(data string) *Node {
-    return &Node{
+func NewLSNode(data string) *LSNode {
+    return &LSNode{
         Data: data,
         Next: nil,
     }
@@ -32,23 +32,23 @@ func NewLinkedList() *LinkedList {
 
 // Функция для добавления элемента в начало списка
 func (ll *LinkedList) InsertBegin(data string) {
-    newNode := NewNode(data)
-    newNode.Next = ll.Head
-    ll.Head = newNode
+    NewLSNode := NewLSNode(data)
+    NewLSNode.Next = ll.Head
+    ll.Head = NewLSNode
 }
 
 // Функция для добавления элемента в конец списка
 func (ll *LinkedList) InsertAtEnd(data string) {
-    newNode := NewNode(data)
+    NewLSNode := NewLSNode(data)
     if ll.Head == nil {
-        ll.Head = newNode
+        ll.Head = NewLSNode
         return
     }
     current := ll.Head
     for current.Next != nil {
         current = current.Next
     }
-    current.Next = newNode
+    current.Next = NewLSNode
 }
 
 // Функция для удаления элемента из списка по значению
@@ -73,26 +73,10 @@ func (ll *LinkedList) DeleteNode(data string) {
 func (ll *LinkedList) Display() {
     current := ll.Head
     for current != nil {
-        fmt.Printf(" -> ", current.Data)
+        fmt.Printf("%s -> ", current.Data)
         current = current.Next
     }
     fmt.Println("nil")
 }
 
-func main() {
-    list := NewLinkedList()
 
-    list.InsertBegin("1")
-    list.InsertBegin("2")
-    list.InsertAtEnd("3")
-    list.InsertAtEnd("4")
-
-    fmt.Println("Список:")
-    list.Display()
-
-    list.DeleteNode("2")
-    list.DeleteNode("4")
-
-    fmt.Println("Список после удаления элементов:")
-    list.Display()
-}
