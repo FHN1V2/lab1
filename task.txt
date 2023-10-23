@@ -1,6 +1,7 @@
-array   +
-stack   +
-queue   +
-hashtable +
-List(1&2)  -   1+   2-
-bintree    -
+TODO:
+1)Исправить название функций и обращение к ним
+2)bintree
+3)queue
+
+FIXME:
+1)queue
