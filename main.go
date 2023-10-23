@@ -28,9 +28,9 @@ func main() {
 	//Queue
 	queue := Queue{}
 
-	queue.Qenqueue(1)
+	queue.Qenqueue("1")
 	queue.Qenqueue("ab")
-	queue.Qenqueue(2)
+	queue.Qenqueue("2")
 	queue.Qenqueue("cd")
 	
 
