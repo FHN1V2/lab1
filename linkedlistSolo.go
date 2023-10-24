@@ -31,14 +31,14 @@ func NewLinkedList() *LinkedList {
 }
 
 // Функция для добавления элемента в начало списка
-func (ll *LinkedList) InsertBegin(data string) {
+func (ll *LinkedList)SLaddS(data string) {
     NewLSNode := NewLSNode(data)
     NewLSNode.Next = ll.Head
     ll.Head = NewLSNode
 }
 
 // Функция для добавления элемента в конец списка
-func (ll *LinkedList) InsertAtEnd(data string) {
+func (ll *LinkedList) SLaddE(data string) {
     NewLSNode := NewLSNode(data)
     if ll.Head == nil {
         ll.Head = NewLSNode
@@ -52,7 +52,7 @@ func (ll *LinkedList) InsertAtEnd(data string) {
 }
 
 // Функция для удаления элемента из списка по значению
-func (ll *LinkedList) DeleteNode(data string) {
+func (ll *LinkedList) SLdel(data string) {
     if ll.Head == nil {
         return
     }
@@ -70,7 +70,7 @@ func (ll *LinkedList) DeleteNode(data string) {
 }
 
 // Функция для вывода элементов списка
-func (ll *LinkedList) Display() {
+func (ll *LinkedList) SLdisplay() {
     current := ll.Head
     for current != nil {
         fmt.Printf("%s -> ", current.Data)

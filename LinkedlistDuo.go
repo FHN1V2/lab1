@@ -36,7 +36,7 @@ func (list *DoublyLinkedList) Dladd(data string) {
 }
 
 // Удаление элемента из списка
-func (list *DoublyLinkedList) DlDel(data interface{}) {
+func (list *DoublyLinkedList) Dldel(data interface{}) {
     current := list.head
     for current != nil {
         if current.data == data {
@@ -57,7 +57,7 @@ func (list *DoublyLinkedList) DlDel(data interface{}) {
 }
 
 // Вывод содержимого списка
-func (list *DoublyLinkedList) DLDisplay() {
+func (list *DoublyLinkedList) DLdisplay() {
     current := list.head
     for current != nil {
         fmt.Printf("%v <-> ", current.data)

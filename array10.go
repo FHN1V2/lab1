@@ -12,13 +12,13 @@ func NewMyArray(size int) MyArray {
 	}
 }
 
-func (arr *MyArray) ASet(index int, value string) {
+func (arr *MyArray) Aset(index int, value string) {
 	if index >= 0 && index < arr.length {
 		arr.data[index] = value
 	}
 }
 
-func (arr MyArray) AGet(index int) string {
+func (arr MyArray) Aget(index int) string {
 	if index >= 0 && index < arr.length {
 		return arr.data[index]
 	}
@@ -27,7 +27,7 @@ func (arr MyArray) AGet(index int) string {
 
 
 
-func (arr *MyArray) ADel(index int) string {
+func (arr *MyArray) Adel(index int) string {
 	if index >= 0 && index < arr.length {
 		deletedValue := arr.data[index] // Сохраняем значение элемента
 		copy(arr.data[index:], arr.data[index+1:]) // Смещаем элементы влево на одну позицию

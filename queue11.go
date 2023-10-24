@@ -1,33 +1,33 @@
 package main
 
 
-// Queue представляет собой структуру данных очередь.
+import "errors"
+// Queue represents a queue data structure.
 type Queue struct {
-	items []interface{}
+	items []string
 }
 
-// Enqueue добавляет элемент в конец очереди.
-func (q *Queue) Qenqueue(item interface{}) {
+// Qadd adds an element to the end of the queue.
+func (q *Queue) Qadd(item string) {
 	q.items = append(q.items, item)
 }
 
-// Dequeue удаляет и возвращает элемент из начала очереди.
-func (q *Queue) Qdequeue() interface{} {
+
+func (q *Queue) Qdell() (string, error) {
 	if len(q.items) == 0 {
-		return nil
+		return "", errors.New("queue is empty")
 	}
 	item := q.items[0]
 	q.items = q.items[1:]
-	return item
+	return item, nil
 }
 
-// Size возвращает количество элементов в очереди.
-func (q *Queue) QSize() int { //не выводить 
-	return len(q.items)
-}
-
-// IsEmpty возвращает true, если очередь пуста, и false в противном случае.
+// IsEmpty returns true if the queue is empty, and false otherwise.
 func (q *Queue) IsEmpty() bool {
 	return len(q.items) == 0
 }
 
+
+func (q *Queue) Qsize() int{
+	return len(q.items)
+}

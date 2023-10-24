@@ -15,13 +15,13 @@ type Stack struct {
 	head *SNode
 }
 
-func (s *Stack) Push(val int) {
+func (s *Stack) Spush(val int) {
 	newNode := &SNode{val: val}
 	newNode.next = s.head
 	s.head = newNode
 }
 
-func (s *Stack) Pop() (int, error) {
+func (s *Stack) Spop() (int, error) {
 	if s.head == nil {
 		return 0, errors.New("stack is empty")
 	}

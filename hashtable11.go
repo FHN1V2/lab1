@@ -24,7 +24,7 @@ func calcHash(key string, size int) (int, error) {
 	return hash % size, nil
 }
 
-func (hmap *HashMap) Insert(key string, value string) error {
+func (hmap *HashMap) Hadd(key string, value string) error {
 	p := &Pair{key, value}
 	hash, err := calcHash(key, len(hmap.table))
 	if err != nil {
@@ -49,7 +49,7 @@ func (hmap *HashMap) Insert(key string, value string) error {
 	return errors.New("table is full")
 }
 
-func (hmap *HashMap) Get(key string) (string, error) {
+func (hmap *HashMap) Hget(key string) (string, error) {
 	hash, err := calcHash(key, len(hmap.table))
 	if err != nil {
 		return "", errors.New("unacceptable key")
@@ -65,7 +65,7 @@ func (hmap *HashMap) Get(key string) (string, error) {
 	return "", errors.New("no such key")
 }
 
-func (hmap *HashMap) Del(key string) error {
+func (hmap *HashMap) Hdel(key string) error {
 	hash, err := calcHash(key, len(hmap.table))
 	if err != nil {
 		return errors.New("unacceptable key")
