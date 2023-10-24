@@ -25,6 +25,10 @@ func (arr MyArray) Aget(index int) string {
 	return ""
 }
 
+func (arr *MyArray) ARadd(value string) {
+	arr.data = append(arr.data, value)
+	arr.length++
+}
 
 
 func (arr *MyArray) Adel(index int) string {

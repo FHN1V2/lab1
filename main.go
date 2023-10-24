@@ -1,13 +1,12 @@
 package main
 
-
 import (
 	"fmt"
 )
 
 func main() {
 
-
+/*
 	//Stack
 					
 	stack := Stack{}
@@ -127,5 +126,36 @@ func main() {
 	list2.Dldel(2)
 	fmt.Println("Содержимое списка после удаления элемента 2:")
 	list2.DLdisplay()
-	
+*/
+	stack:=Stack{}
+	queue:=Queue{}
+	array:=MyArray{}
+	var Isinput bool
+	Isinput =true
+	for Isinput{
+		var input string
+		var index int
+		
+		
+		fmt.Scanf("%s", &input)
+		switch input{
+		case "SPUSH":
+			fmt.Scanf("%s",&input)
+			stack.Spush(input)
+		case "SPOP":
+			fmt.Println(stack.Spop())
+		case "QPUSH":
+			fmt.Scanf("%s %s",&input)
+			queue.Qadd(input)
+		case "QPOP":
+			fmt.Println(queue.Qdell())
+		case "APUSH":
+			fmt.Scanf("%s",&input)
+			array.ARadd(input)
+		
+		case "AGET":
+			fmt.Scanf("%d",index)
+		fmt.Println(array.Aget(index))
+	}
+}
 }

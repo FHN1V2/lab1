@@ -19,7 +19,7 @@ func (q *Queue) Qdell() (string, error) {
 	}
 	item := q.items[0]
 	q.items = q.items[1:]
-	return item, nil
+	return item,errors.New("")
 }
 
 // IsEmpty returns true if the queue is empty, and false otherwise.
