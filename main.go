@@ -130,6 +130,7 @@ func main() {
 	stack:=Stack{}
 	queue:=Queue{}
 	array:=MyArray{}
+	//array=NewMyArray(0)
 	var Isinput bool
 	Isinput =true
 	for Isinput{
@@ -145,7 +146,7 @@ func main() {
 		case "SPOP":
 			fmt.Println(stack.Spop())
 		case "QPUSH":
-			fmt.Scanf("%s %s",&input)
+			fmt.Scanf("%s",&input)
 			queue.Qadd(input)
 		case "QPOP":
 			fmt.Println(queue.Qdell())
@@ -154,8 +155,10 @@ func main() {
 			array.ARadd(input)
 		
 		case "AGET":
-			fmt.Scanf("%d",index)
+			fmt.Scanf("%d",&index)
 		fmt.Println(array.Aget(index))
+		case "APRINT":
+			array.PrintArray()
 	}
 }
 }

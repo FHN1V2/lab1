@@ -1,5 +1,8 @@
 package main
 
+
+import "fmt"
+
 type MyArray struct {
 	data   []string
 	length int
@@ -18,11 +21,12 @@ func (arr *MyArray) Aset(index int, value string) {
 	}
 }
 
-func (arr MyArray) Aget(index int) string {
+func (arr *MyArray) Aget(index int) string {
 	if index >= 0 && index < arr.length {
+		fmt.Println(index)
 		return arr.data[index]
 	}
-	return ""
+	return "Error"
 }
 
 func (arr *MyArray) ARadd(value string) {
@@ -43,4 +47,9 @@ func (arr *MyArray) Adel(index int) string {
 }
 
 
-
+func (arr MyArray) PrintArray() {
+    for i := 0; i < arr.length; i++ {
+        fmt.Printf("%s ", arr.data[i])
+    }
+    fmt.Println() // Перейти на следующую строку после вывода массива
+}
