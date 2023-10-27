@@ -1,2 +1,1 @@
-for start:
-write in cmd "go run name all files..."
+Code for lab1 and prac1
