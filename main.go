@@ -127,38 +127,87 @@ func main() {
 	fmt.Println("Содержимое списка после удаления элемента 2:")
 	list2.DLdisplay()
 */
-	stack:=Stack{}
-	queue:=Queue{}
-	array:=MyArray{}
-	//array=NewMyArray(0)
-	var Isinput bool
-	Isinput =true
-	for Isinput{
-		var input string
-		var index int
-		
-		
-		fmt.Scanf("%s", &input)
-		switch input{
-		case "SPUSH":
-			fmt.Scanf("%s",&input)
-			stack.Spush(input)
-		case "SPOP":
-			fmt.Println(stack.Spop())
-		case "QPUSH":
-			fmt.Scanf("%s",&input)
-			queue.Qadd(input)
-		case "QPOP":
-			fmt.Println(queue.Qdell())
-		case "APUSH":
-			fmt.Scanf("%s",&input)
-			array.ARadd(input)
-		
-		case "AGET":
-			fmt.Scanf("%d",&index)
-		fmt.Println(array.Aget(index))
-		case "APRINT":
-			array.PrintArray()
-	}
-}
+    list1 := LinkedList{}
+    stack := Stack{}
+    queue := Queue{}
+    array := MyArray{}
+    hmap := HashMap{} // Создаем экземпляр хэштаблицы
+    list2 :=DoublyLinkedList{}
+    //tree1:= BSTNode{}
+    var tree *BSTNode
+   // index:=0
+//tree = BSTadd(tree, index)
+    var Isinput bool
+    Isinput = true
+    for Isinput {   
+        var input string
+        var index int
+		var index2 string
+        fmt.Scanf("%s", &input)
+        switch input {
+        case "SPUSH":
+            fmt.Scanf("%s", &input)
+            stack.Spush(input)
+        case "SPOP":
+            fmt.Println(stack.Spop())
+        case "QPUSH":
+            fmt.Scanf("%s", &input)
+            queue.Qadd(input)
+        case "QPOP":
+            fmt.Println(queue.Qdell())
+        case "APUSH":
+            fmt.Scanf("%s", &input)
+            array.ARadd(input)
+        case "AGET":
+            fmt.Scanf("%d", &index)
+            fmt.Println(array.Aget(index))
+        case "ADEL":
+            fmt.Scanf("%d", &index)
+            array.Adel(index)
+        case "APRINT":
+            array.PrintArray()
+        case "HADD":
+            // Добавление элемента в хэштаблицу
+            fmt.Scanf("%s", &input) // Считываем ключ
+            fmt.Scanf("%s", &index2) // Считываем значение
+            hmap.Hadd(input, index2)
+
+        case "HGET":
+            // Получение значения из хэштаблицы
+            fmt.Scanf("%s", &input) // Считываем ключ
+            fmt.Println(hmap.Hget(input))
+
+        case "HDEL":
+            // Удаление элемента из хэштаблицы
+            fmt.Scanf("%s", &input) // Считываем ключ
+            hmap.Hdel(input)
+        case "LSADD":
+            fmt.Scanf("%s", &input)
+            list1.SLaddS(input)
+        case "LSEADD":
+            fmt.Scanf("%s", &input)
+            list1.SLaddE(input)
+        case "LSDEL":
+            fmt.Scanf("%s", &input)
+            list1.SLdel(input)
+        case "LSDISPLAY":
+            list1.SLdisplay()
+        case "DLADDE":
+            fmt.Scanf("%s", &input)
+            list2.DladdE(input)
+        case "DLDEL":
+            fmt.Scanf("%s", &input)
+            list2.Dldel(input)
+        case "DLADD":
+            fmt.Scanf("%s", &input)
+            list2.DlAdd(input)
+        case "DLDISPLAY":
+            list2.DLdisplay()
+        case "BSTADD":
+            fmt.Scanf("%d", &index)
+            tree =BSTadd(tree, index)
+        case "BSTDISPLAY":
+            PrintTree(tree, "", true)
+        }
+    }
 }

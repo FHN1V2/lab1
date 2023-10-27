@@ -1,8 +1,0 @@
-TODO:
-1)bintree
-
-
-
-FIXME:
-1)дописать вывод массива (array10.go)
-2)отладить array10.go

@@ -23,7 +23,7 @@ func (arr *MyArray) Aset(index int, value string) {
 
 func (arr *MyArray) Aget(index int) string {
 	if index >= 0 && index < arr.length {
-		fmt.Println(index)
+		//fmt.Println(index)
 		return arr.data[index]
 	}
 	return "Error"
