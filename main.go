@@ -164,6 +164,9 @@ func main() {
         case "ADEL":
             fmt.Scanf("%d", &index)
             array.Adel(index)
+        case "ASET":
+            fmt.Scanf("%d %s",&index,&input)
+            array.Aset(index,input)
         case "APRINT":
             array.PrintArray()
         case "HADD":

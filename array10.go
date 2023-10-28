@@ -28,9 +28,15 @@ func (arr *MyArray) Aget(index int) string {
 	}
 	return "Error"
 }
-
+	// arr.data = append(arr.data, value)
+	// arr.length++
 func (arr *MyArray) ARadd(value string) {
-	arr.data = append(arr.data, value)
+	newData:=make([]string,arr.length+1)
+	for i:=0;i<arr.length;i++{
+		newData[i]=arr.data[i]
+	}
+	newData[arr.length]=value
+	arr.data=newData
 	arr.length++
 }
 
