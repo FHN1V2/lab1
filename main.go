@@ -130,7 +130,9 @@ func main() {
     list1 := LinkedList{}
     stack := Stack{}
     queue := Queue{}
-    array := MyArray{}
+    //array := MyArray{}
+    //var array *MyArray
+    array:= NewMyArray(10)
     hmap := HashMap{} // Создаем экземпляр хэштаблицы
     list2 :=DoublyLinkedList{}
     //tree1:= BSTNode{}
@@ -157,7 +159,7 @@ func main() {
             fmt.Println(queue.Qdell())
         case "APUSH":
             fmt.Scanf("%s", &input)
-            array.ARadd(input)
+            fmt.Println(array.ARadd(input))
         case "AGET":
             fmt.Scanf("%d", &index)
             fmt.Println(array.Aget(index))

@@ -1,4 +1,4 @@
-package main
+/*package main
 
 
 import "fmt"
@@ -58,4 +58,60 @@ func (arr MyArray) PrintArray() {
         fmt.Printf("%s ", arr.data[i])
     }
     fmt.Println() // Перейти на следующую строку после вывода массива
+}
+*/
+
+package main
+
+import "fmt"
+
+type MyArray struct {
+	data []string
+}
+
+func NewMyArray(size int) MyArray {
+	return MyArray{
+		data: make([]string, size),
+	}
+}
+
+func (arr *MyArray) Aset(index int, value string) {
+	if index >= 0 && index < len(arr.data) {
+		arr.data[index] = value
+	}
+}
+
+func (arr *MyArray) Aget(index int) string {
+	if index >= 0 && index < len(arr.data) {
+		return arr.data[index]
+	}
+	return "Error"
+}
+
+func (arr *MyArray) ARadd(value string) string {
+	for i := 0; i < len(arr.data); i++ {
+		if arr.data[i] == "" {
+			arr.data[i] = value
+			return "Added"
+		}
+	}
+	return "Array is full"
+}
+
+func (arr *MyArray) Adel(index int) string {
+	if index >= 0 && index < len(arr.data) {
+		deletedValue := arr.data[index]
+		arr.data[index] = ""
+		return deletedValue
+	}
+	return "Index not found"
+}
+
+func (arr MyArray) PrintArray() {
+	for i := 0; i < len(arr.data); i++ {
+		if arr.data[i] != "" {
+			fmt.Printf("%s ", arr.data[i])
+		}
+	}
+	fmt.Println()
 }
