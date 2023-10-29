@@ -61,7 +61,7 @@ func PrintTree(BSTNode *BSTNode, prefix string, isLeft bool) {
     }
 
     if BSTNode.Right != nil {
-        PrintTree(BSTNode.Right, prefix+mapBool(false, "   ", "    "), false)//PrintTree(BSTNode.Right, prefix+mapBool(isLeft, "│   ", "    "), false)
+        PrintTree(BSTNode.Right, prefix + "   ", false)
     }
 
     fmt.Print(prefix)
@@ -73,13 +73,7 @@ func PrintTree(BSTNode *BSTNode, prefix string, isLeft bool) {
     fmt.Println(BSTNode.Key)
 
     if BSTNode.Left != nil {
-        PrintTree(BSTNode.Left, prefix+mapBool(isLeft, "    ", "   "), true)
+        PrintTree(BSTNode.Left, prefix + "   ", true)
     }
 }
-    func mapBool(b bool, trueVal, falseVal string) string {
-    if b {
-    return trueVal
-    }
-    return falseVal
-    }
 
