@@ -130,7 +130,7 @@ func main() {
     list1 := LinkedList{}
     stack := Stack{}
     queue := Queue{}
-    set:=NewSet()
+    //set:=NewSet()
     //array := MyArray{}
     //var array *MyArray
     array:= NewMyArray(10)
@@ -212,16 +212,6 @@ func main() {
             tree =BSTadd(tree, index)
         case "BSTDISPLAY":
             PrintTree(tree, "", true)
-        case "SETPUSH":
-            fmt.Scanf("%s", &input)
-            set.SetAdd(input)  
-        case "SETDEL":
-            fmt.Scanf("%s", &input)
-            set.SetRemove(input)
-        case "SETPRINT":
-            set.SetPrint()
-        }
-
-
     }
+}
 }
