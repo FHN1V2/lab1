@@ -137,11 +137,9 @@ func main() {
     list2 :=DoublyLinkedList{}
     //tree1:= BSTNode{}
     var tree *BSTNode
-   // index:=0
-//tree = BSTadd(tree, index)
-    var Isinput bool
-    Isinput = true
-    for Isinput {   
+    // index:=0
+    //tree = BSTadd(tree, index)
+    for  {   
         var input string
         var index int
 		var index2 string
